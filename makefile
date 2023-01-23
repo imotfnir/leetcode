@@ -28,8 +28,8 @@ all: $(RUN)
 
 rebuild: clean all
 
-test: all
-	$(RUN)
+test: all $(RUN)
+	$(foreach r,$(RUN),./$r;)
 
 clean:
 	$(RM) $(RUN) $(OBJS) $(DEPS)
