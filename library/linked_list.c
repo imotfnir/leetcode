@@ -28,7 +28,7 @@ void print_list(Node *list) {
         printf("%d, ", current->data);
         current = current->next;
     }
-
+    printf("\n");
     return;
 }
 
@@ -54,5 +54,46 @@ Node *new_list(int *data_list, size_t len) {
         append_node(&head, data_list[i]);
     }
 
+    return head;
+}
+
+Node *merge_two_list(Node *list1, Node *list2) {
+    Node *head = NULL;
+    Node *current1 = list1;
+    Node *current2 = list2;
+
+    if(list1 == NULL) {
+        return list2;
+    }
+
+    if(list2 == NULL) {
+        return list1;
+    }
+
+    while((current1 != NULL) || (current2 != NULL)) {
+        if(current2 == NULL) {
+            append_node(&head, current1->data);
+            current1 = current1->next;
+            continue;
+        }
+
+        if(current1 == NULL) {
+            append_node(&head, current2->data);
+            current2 = current2->next;
+            continue;
+        }
+
+        if(current1->data <= current2->data) {
+            append_node(&head, current1->data);
+            current1 = current1->next;
+            continue;
+        }
+
+        if(current2->data <= current1->data) {
+            append_node(&head, current2->data);
+            current2 = current2->next;
+            continue;
+        }
+    }
     return head;
 }

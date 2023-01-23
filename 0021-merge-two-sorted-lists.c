@@ -3,8 +3,15 @@
 #include <stdio.h>
 
 int main() {
-    Node* list1=new_list((int[5]){ 1, 2, 3, 2, 0 }, 5U);
+    Node *list1 = new_list((int[3]){ 1, 2, 3}, 3U);
+    Node *list2 = new_list((int[5]){ 0, 2, 5, 6, 7 }, 5U);
+    Node *list3 = NULL;
+
     print_list(list1);
+    print_list(list2);
+
+    list3 = merge_two_list(list1, list2);
+    print_list(list3);
 
     return 0;
 }
