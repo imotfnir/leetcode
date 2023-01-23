@@ -3,7 +3,8 @@
 #include <stdio.h>
 
 int main() {
-    printf("hello world");
+    Node* list1=new_list((int[5]){ 1, 2, 3, 2, 0 }, 5U);
+    print_list(list1);
 
     return 0;
 }

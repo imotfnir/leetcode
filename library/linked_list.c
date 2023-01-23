@@ -9,16 +9,15 @@ void append_node(Node **head, int value) {
     tail->data = value;
     tail->next = NULL;
 
-    if(head == NULL) {
+    if(*head == NULL) {
         *head = tail;
+        return;
     }
 
     while(current->next != NULL) {
         current = current->next;
     }
-
     current->next = tail;
-
     return;
 }
 
@@ -47,4 +46,13 @@ void reverse_list(Node **head) {
 
     *head = prev;
     return;
+}
+
+Node *new_list(int *data_list, size_t len) {
+    Node *head = NULL;
+    for(size_t i = 0; i < len; i++) {
+        append_node(&head, data_list[i]);
+    }
+
+    return head;
 }
