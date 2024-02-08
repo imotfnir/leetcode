@@ -4,17 +4,17 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef struct Node Node;
+typedef struct node node;
 
-void append_node(Node **head, int value);
-void print_list(Node *list);
-void reverse_list(Node **head);
-Node *new_list(int *data_list, size_t len);
-Node *merge_two_list(Node *list1, Node *list2);
+void append_node(node **head, int value);
+void print_list(node *list);
+void reverse_list(node **head);
+node *new_list(int *data_list, size_t len);
+node *merge_two_list(node *list1, node *list2);
 
-struct Node {
+struct node {
     int data;
-    Node *next;
+    node *next;
 };
 
 #endif

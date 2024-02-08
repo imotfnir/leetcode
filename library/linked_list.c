@@ -2,9 +2,9 @@
 
 #include <stdio.h>
 
-void append_node(Node **head, int value) {
-    Node *tail = (Node *)malloc(sizeof(Node));
-    Node *current = *head;
+void append_node(node **head, int value) {
+    node *tail = (node *)malloc(sizeof(node));
+    node *current = *head;
 
     tail->data = value;
     tail->next = NULL;
@@ -21,8 +21,8 @@ void append_node(Node **head, int value) {
     return;
 }
 
-void print_list(Node *list) {
-    Node *current = list;
+void print_list(node *list) {
+    node *current = list;
 
     while(current != NULL) {
         printf("%d, ", current->data);
@@ -32,10 +32,10 @@ void print_list(Node *list) {
     return;
 }
 
-void reverse_list(Node **head) {
-    Node *prev = NULL;
-    Node *next = NULL;
-    Node *current = *head;
+void reverse_list(node **head) {
+    node *prev = NULL;
+    node *next = NULL;
+    node *current = *head;
 
     while(current != NULL) {
         next = current->next;
@@ -48,8 +48,8 @@ void reverse_list(Node **head) {
     return;
 }
 
-Node *new_list(int *data_list, size_t len) {
-    Node *head = NULL;
+node *new_list(int *data_list, size_t len) {
+    node *head = NULL;
     for(size_t i = 0; i < len; i++) {
         append_node(&head, data_list[i]);
     }
@@ -57,10 +57,10 @@ Node *new_list(int *data_list, size_t len) {
     return head;
 }
 
-Node *merge_two_list(Node *list1, Node *list2) {
-    Node *head = NULL;
-    Node *current1 = list1;
-    Node *current2 = list2;
+node *merge_two_list(node *list1, node *list2) {
+    node *head = NULL;
+    node *current1 = list1;
+    node *current2 = list2;
 
     if(list1 == NULL) {
         return list2;
